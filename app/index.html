@@ -1,9 +1,23 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Es6 Playground </title>
+    <title>ES6 Playground </title>
+     <script  src="polyfill.js" ></script>
+    <script src="system.js"></script>
+      <script>
+  // set our baseURL reference path
+        System.config({
+            baseURL: '',
+            defaultJSExtensions: true
+        });
+
+        // loads /js/main.js
+        System.import('index.js');
+</script>
+
 </head>
 <body>
-   <h1>Es6 playground</h1>
+   <h1>ES6 Playground</h1>
   <h3>Sample project to test out the different es6 features. Also use a transpiler like Babel</h3>
 </body>
 </html>
