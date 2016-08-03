@@ -52,3 +52,9 @@ gulp.task('copy-html', function(){
 
 //gulp task to build in dev
 gulp.task('build-dev',['clean-dist', 'copy-lib-js-files','transpile-js','copy-html']);
+
+// gulp task to watch the folder and trigger build
+gulp.task('watch', function(){
+ return  gulp.watch(config.rootappPath +'/**/*', ['build-dev']);
+});
+ 
