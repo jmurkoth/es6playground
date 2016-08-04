@@ -4,6 +4,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var babel = require('gulp-babel');
 var concat = require('gulp-concat');
 var del = require('del');
+var plumber = require('gulp-plumber');
 var config ={
   rootappPath:'./app',
   distribFolder:'./dist',
@@ -26,6 +27,12 @@ gulp.task("default", function () {
 //task to transpile the js code and copy to the distrib folder
 gulp.task('transpile-js', function() {
     return gulp.src(config.pathToJsFiles)
+        .pipe(plumber({
+                errorHandler: function (err) {
+                    console.log(err);
+                    this.emit('end');
+                }
+            }))
         .pipe(sourcemaps.init())
         .pipe(babel({
             presets: ['es2015']
