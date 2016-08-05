@@ -5,6 +5,7 @@ var babel = require('gulp-babel');
 var concat = require('gulp-concat');
 var del = require('del');
 var plumber = require('gulp-plumber');
+
 var config ={
   rootappPath:'./app',
   distribFolder:'./dist',
@@ -15,6 +16,7 @@ var config ={
             'node_modules/systemjs/dist/system.js'
   ]
 };
+
 gulp.task("default", function () {
   return gulp.src(config.pathToJsFiles)
     .pipe(sourcemaps.init())
@@ -58,10 +60,14 @@ gulp.task('copy-html', function(){
 });
 
 //gulp task to build in dev
-gulp.task('build-dev',['clean-dist', 'copy-lib-js-files','transpile-js','copy-html']);
-
+gulp.task('build-dev',
+    gulp.series('clean-dist',
+    gulp.parallel( 'copy-lib-js-files','transpile-js','copy-html')
+    ));
+    
 // gulp task to watch the folder and trigger build
 gulp.task('watch', function(){
- return  gulp.watch(config.rootappPath +'/**/*', ['build-dev']);
+    
+   gulp.watch(config.rootappPath +'/**/*', gulp.series('build-dev'));
 });
  
