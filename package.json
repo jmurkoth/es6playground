@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "lite-server"
+    "dev": "gulp serve-dev"
   },
   "keywords": [
     "es6"
@@ -22,7 +22,7 @@
     "gulp-concat": "^2.6.0",
     "gulp-plumber": "^1.1.0",
     "gulp-sourcemaps": "^1.6.0",
-    "lite-server": "^2.2.2"
+    "gulp-util": "^3.0.7"
   },
   "dependencies": {
     "babel-polyfill": "^6.9.1",

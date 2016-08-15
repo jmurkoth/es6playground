@@ -2,5 +2,16 @@
          "port":8000, 
         "files": ["./dist/**/*.{html,htm,css,js}"], 
         "server": { "baseDir": "./dist" } ,
-        "reloadDelay": 100
+        "reloadDelay": 100,
+        "ghostMode": { 
+            "clicks": true,
+            "location": false,
+            "forms": true,
+            "scroll": true
+        },
+        "injectChanges": true,
+        "logFileChanges": true,
+        "logLevel": "info",
+        "logPrefix": "ES6Playground",
+        "notify": true
     }

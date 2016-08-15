@@ -5,6 +5,9 @@ var babel = require('gulp-babel');
 var concat = require('gulp-concat');
 var del = require('del');
 var plumber = require('gulp-plumber');
+var util = require ('gulp-util');
+var browserSync = require('browser-sync').create();
+var bsconfig = require('./bs-config.json');
 
 var config ={
   rootappPath:'./app',
@@ -67,7 +70,51 @@ gulp.task('build-dev',
     
 // gulp task to watch the folder and trigger build
 gulp.task('watch', function(){
-    
-   gulp.watch(config.rootappPath +'/**/*', gulp.series('build-dev'));
+    log('*** watching files for changes');
+   gulp.watch(config.rootappPath +'/**/*', gulp.series('build-dev','browsersync-start'));
 });
  
+ gulp.task('browsersync-start', function(done){
+     if(browserSync.active)
+     {
+         log('*** Reloading browser');
+         browserSync.reload();
+         done();
+         return;
+     }
+      var config =   {
+                port:8000, 
+                files: ["./dist/**/*.{html,htm,css,js}"], 
+                server: { "baseDir": "./dist" } ,
+                reloadDelay: 100,
+                ghostMode: { // these are the defaults t,f,t,t
+                    clicks: true,
+                    location: false,
+                    forms: true,
+                    scroll: true
+                },
+                injectChanges: true,
+                logFileChanges: true,
+                logLevel: "info",
+                logPrefix: "ES6Playground",
+                notify: true
+                };
+     log('*** Initializing browser ****');
+      browserSync.init(bsconfig);
+      done();
+     
+  
+ } );
+gulp.task('serve-dev',gulp.series( 'build-dev','browsersync-start','watch'));
+
+ function log(msg) {
+    if (typeof(msg) === 'object') {
+        for (var item in msg) {
+            if (msg.hasOwnProperty(item)) {
+               util.log(util.colors.blue(msg[item]));
+            }
+        }
+    } else {
+        util.log(util.colors.blue(msg));
+    }
+}
