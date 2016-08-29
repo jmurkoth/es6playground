@@ -5,6 +5,7 @@
  import * as restdemo from './restSpread.demo'
  import * as intdemo from './international.demo'
  import * as prom from './promise.demo'
+ import * as strDemo from './templatestring.demo'
 
  let m = 20
  console.log(m)
@@ -17,7 +18,10 @@
  console.log(restdemo.defValue(4))
 // internationalization
  intdemo.numbFormat()
-// date format
+// date format;
  intdemo.dateFormat()
 // promise test
  prom.testprom(10)
+ // template string
+ strDemo.stringDemo()
+
