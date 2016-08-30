@@ -14,7 +14,7 @@
  constantDemo.demoCall()
  console.log(arrowDemo.sqrt(16))
  desctru.destruct()
- console.log(restdemo.restdemo(1, 2, 3, 4, 5, 6, 7, 8))
+ restdemo.restdemo()
  console.log(restdemo.defValue(4))
 // internationalization
  intdemo.numbFormat()
@@ -24,4 +24,6 @@
  prom.testprom(10)
  // template string
  strDemo.stringDemo()
+ // spread demo
+ restdemo.spreaddemo()
 

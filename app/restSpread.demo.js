@@ -1,5 +1,5 @@
 function f (x, y, ...a) {
-  console.log(`x:${x} y:${y} a:${a}`)
+  console.log(`Rest Demo :->x:${x} y:${y} a:${a}`)
   return (x + y) * a.length
 }
 function defValue (x, y = 12) {
@@ -7,7 +7,20 @@ function defValue (x, y = 12) {
   return x + y
 }
 
+function func (x, y, z) {
+  console.log(`spread Demo :->x:${x} y:${y} z:${z}`)
+  return x + y + z
+}
+function restdemo () {
+  console.log(f(1, 2, 4, 5, 6, 7, 8))
+}
+function spreadDemo () {
+  let arr = [9, 1, 4, 5, 6, 7, 8]
+  console.log(`Spread Value: ${func(...arr)}`)
+}
+
 module.exports = {
-  restdemo: f,
-  defValue: defValue
+  restdemo: restdemo,
+  defValue: defValue,
+  spreaddemo: spreadDemo
 }
