@@ -16,7 +16,8 @@ function restdemo () {
 }
 function spreadDemo () {
   let arr = [9, 1, 4, 5, 6, 7, 8]
-  console.log(`Spread Value: ${func(...arr)}`)
+  console.log(`Spread using an Array: ${func(...arr)}`)
+  console.log(`Spread using different parameters: ${func(1, 2, 3, 4, 5)}`)
 }
 
 module.exports = {
