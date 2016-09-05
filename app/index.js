@@ -22,6 +22,8 @@
  intdemo.dateFormat()
 // promise test
  prom.testprom(10)
+ // all promises
+ prom.allprom()
  // template string
  strDemo.stringDemo()
  // spread demo
