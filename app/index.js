@@ -24,6 +24,8 @@
  prom.testprom(10)
  // all promises
  prom.allprom()
+ // race
+ prom.raceprom()
  // template string
  strDemo.stringDemo()
  // spread demo
