@@ -6,6 +6,7 @@
  import * as intdemo from './international.demo'
  import * as prom from './promise.demo'
  import * as strDemo from './templatestring.demo'
+ import {symbolDemo as symdemo, symbolMethodDef as symmethdef} from './symbols.demo'
 
  let m = 20
  console.log(m)
@@ -30,4 +31,7 @@
  strDemo.stringDemo()
  // spread demo
  restdemo.spreaddemo()
+ // demo for symbols
+ symdemo()
+ symmethdef()
 
