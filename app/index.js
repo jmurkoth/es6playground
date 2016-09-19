@@ -7,6 +7,7 @@
  import * as prom from './promise.demo'
  import * as strDemo from './templatestring.demo'
  import {symbolDemo as symdemo, symbolMethodDef as symmethdef} from './symbols.demo'
+ import {simpleProxy, trapProxy, getSetCheckProxy, validateProxy, revocableProxy} from './proxies.demo'
 
  let m = 20
  console.log(m)
@@ -34,4 +35,9 @@
  // demo for symbols
  symdemo()
  symmethdef()
+ simpleProxy()
+ trapProxy()
+ getSetCheckProxy()
+ validateProxy()
+ revocableProxy()
 
